@@ -7,8 +7,13 @@ class App < Sinatra::Base
   end
 
   get '/bookmarks' do
-    "I'm a bookmark"
-  end
+    @bookmarks = [
+            "http://www.sqltutorial.org/sql-cheat-sheet/",
+            "https://blog.ganttpro.com/en/waterfall-vs-agile-with-advantages-and-disadvantages/"
+           ]
+
+  erb :'bookmarks/index'
+end
 
   run! if app_file == $0
 end
