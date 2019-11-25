@@ -1,3 +1,7 @@
+This is a Maker's academy pairing challenge - Bookmarks manager
+
+https://github.com/makersacademy/course/blob/master/bookmark_manager/00_challenge_map.md#challenges
+
 
 USER STORIES
 
