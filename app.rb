@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/bookmark'
 
 class App < Sinatra::Base
 
@@ -7,13 +8,9 @@ class App < Sinatra::Base
   end
 
   get '/bookmarks' do
-    @bookmarks = [
-            "http://www.sqltutorial.org/sql-cheat-sheet/",
-            "https://blog.ganttpro.com/en/waterfall-vs-agile-with-advantages-and-disadvantages/"
-           ]
-
-  erb :'bookmarks/index'
-end
+    @bookmarks = Bookmark.all
+    erb :'bookmarks/index'
+  end
 
   run! if app_file == $0
 end
