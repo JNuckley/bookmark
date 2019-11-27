@@ -9,6 +9,23 @@ POSTGRES INSTRUCTIONS FOR DATABASE(Table)
  3. Connect to the database using the psql command \c bookmark_manager;
  4. Run the query we have saved in the file 01_create_bookmarks_table.sql
 
+ POSTGRES INSTRUCTIONS FOR TEST DATABASE(Table)
+  1. Connect to psql (brew services start postgresql)
+  2. Create the database using the psql command CREATE DATABASE bookmark_manager_test;
+  3. Connect to the database using the psql command \c bookmark_manager_test;
+  4. Run the query we have saved in the file 01_create_bookmarks_table.sql
+
+  SETTING UP THE TEST ENVIRONMENT
+  1. Create a file called setup_test_database.rb
+  2. Require 'pg' in the file (psql)
+  3. Define a method in there called setup_test_database
+  4. Make it return something in the terminal so you know it is working (ie. p "Setting up database...")
+  5. Connect to the database > (connection = PG.connect(dbname: 'bookmark_manager_test'))
+  6. Truncate the table > connection.exec("TRUNCATE bookmarks;")
+  7. Go into spec_helper.rb and require_relative setup_test_databse
+  8. State ENV['Environment'] = 'test' (this needs to be at the top under the requires)
+  9. In RSPec config, insert config.before(:each) do and call the setup_test_database method
+
 USER STORIES
 
 -- As a user,
