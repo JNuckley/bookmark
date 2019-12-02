@@ -10,6 +10,11 @@ class App < Sinatra::Base
   get '/bookmarks/new' do
   erb :"bookmarks/new"
 end
+
+  post 'bookmarks/new' do
+    Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
 #  by making all bookmarks an instance variable, it can be called in the view files.
 #  is this needed?
   get '/bookmarks' do

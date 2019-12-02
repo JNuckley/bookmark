@@ -1,5 +1,5 @@
 require 'bookmark'
-
+require 'database_helpers'
 
 describe '.all' do
   it 'returns all bookmarks' do
